@@ -1,7 +1,15 @@
+import java.util.ArrayList;
+import java.util.List;
+
 
 
 
 public class TermWeight {
+	
+	//This variable will hold all terms of each document in an array.
+    private List termsDocsArray = new ArrayList<Object>();
+    private List allTerms = new ArrayList<Object>(); //to hold all terms
+    private List tfidfDocsVector = new ArrayList<Object>();
 	
 	public static double deltaTfIdf(String word, String[] docsWords,double dfPlus,double dfMinus){
 		double tf=getTf(word,docsWords);
@@ -45,6 +53,20 @@ public class TermWeight {
 			}
 		}
 		return Math.log(1+(termFreqency/(double)docsWords.length));
+	}
+	public void termVector(int numDocuments,int numDocsContainingWord){
+		for (String[] docTermsArray : termsDocsArray) {
+            double[] tfidfvectors = new double[allTerms.size()];
+            
+            for (int count = 0;count<numDocuments;count++) {
+               double tf = getTf(term,docTermsArray );
+                double idf = getIdf(numDocuments,numDocsContainingWord);
+                double tfidf = tf * idf;
+                tfidfvectors[count] = tfidf;
+                
+            }
+            tfidfDocsVector.add(tfidfvectors);  //storing document vectors;            
+        }
 	}
 	
 	
