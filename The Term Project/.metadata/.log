@@ -1,0 +1,26 @@
+!SESSION 2015-12-21 19:17:19.469 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=tr_TR
+Framework arguments:  -product org.eclipse.epp.package.standard.product -product org.eclipse.epp.package.standard.product -keyring /Users/busra/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -product org.eclipse.epp.package.standard.product -data /Users/busra/Desktop/term_project_IR/The Term Project -product org.eclipse.epp.package.standard.product -keyring /Users/busra/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.ui.ide 4 4 2015-12-21 19:20:10.982
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 4 1 2015-12-21 19:20:10.987
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 4 568 2015-12-21 19:20:10.987
+!MESSAGE Could not write workspace metadata '/Users/busra/Desktop/term_project_IR/The Term Project/.metadata/.plugins/org.eclipse.core.resources/.root/4.tree'.
+!STACK 0
+java.io.FileNotFoundException: /Users/busra/Desktop/term_project_IR/The Term Project/.metadata/.plugins/org.eclipse.core.resources/.root/4.tree (No such file or directory)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:194)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:145)
+	at org.eclipse.core.internal.localstore.SafeFileOutputStream.<init>(SafeFileOutputStream.java:51)
+	at org.eclipse.core.internal.resources.SaveManager.saveTree(SaveManager.java:1352)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1134)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2376)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$5.run(IDEWorkbenchAdvisor.java:508)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
