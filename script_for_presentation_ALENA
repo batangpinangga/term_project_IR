@@ -1,0 +1,68 @@
+What is automatic music mood classification?
+	- task of predicting moods of songs (e.g. happy, sad, upbeat, depressed, angry)
+	- moods are often called tags
+	- Example: which mood is the song ".... " by the artist "..."
+	
+Classification based on lyrics
+	- in this paper: lyrics used to classify
+	- Overview of the classification
+				
+From a dataset to the mood classification
+	- based on a large dataset train system
+	- represent songs as vectors si in Vector Space Model s = (t1,t2,.....tn)
+	- compute different weighting schemes (binary, td-idf, BM25, delta tf-idf...)
+	- classify songs with linear classifers
+	- evaluate System (Accuracy-Metric, Kruskal-Wallis test)
+
+Dataset
+	- large, free-available Dataset (1mio songs)
+	- MSD (Million Songs dataset) and subsets with metadata (LastFM, MusixMatch)
+	- comes as json-files or SQLite-Databases
+	- contains test and training-files
+	- multilangual, only consider English songs
+
+Vector Space Model
+	- recap: every song is a vector, every term is a number (tf-value, tdidf-value, 1/0, BM25 or delta tf-idf)
+	- 1/0
+		binary classifier: 	1=> lyric of this song contain term, 
+							0=> lyric of this song doesn't contain term
+	- BM25
+		[Büsra...your turn :)]
+	- delta tf-idf
+		[Büsra...your turn :)]
+
+Analysing the Vector Space
+	- important for classification performance
+	- analysing distribution of songs in training set
+	- analysing the classes and the distribution between classes
+		- number of songs in 1 class
+		- number of distinct terms per class
+		- number of unique term per class (which are not in other classes)
+		- Mean (std. dev.) number of distinct terms per song
+		- Mean (std. dev.) number of terms per song
+Classes
+	- 3 granularities 
+		- tags, groups, quadrants
+		-[picture: table 1]
+	- Results of analysis
+		-[picture: table 2]
+	- conclusion: 
+		- [picture: table 3]
+		- [picture: figure 1]
+		- [picture: figure 2] 
+		- majority of terms (98%) occur just once in songs, only 1.1% of terms occur twice
+			=> no difference in classification result for binary and tf-weighting
+		- df histogram follows a long tail distribution: most terms in small subset(1,044 terms (23%) appear in 20 songs) or less, 272 terms (6%) appear in more than 2000 (out of a total of 32,302) songs
+		- distribution of terms across documents limits idf-weighting => td-idf, delta-idf, BM25
+		- BUT, delta-idf doesn't affect classification much
+		-[picture: figure 3]
+		- BUT: lack of discriminating terms in dataset
+		
+Classification
+	- [Büsra...your turn :)]
+		
+Conclusion
+	- An Exploration of Mood Classification in the Million Songs Dataset is a new paper (published June 2015)
+	- replicable (open dataset, open source code...)
+	- lack in dataset: lack of discriminatin terms
+	- highly related to Information Retrieval
